@@ -26,8 +26,15 @@
   <body>
     <!-- ШАПКА -->
     <header class="header">
-      <div class="container">
-        ШАПКА
+      <div class="container header__container">
+        <div class="header__logo">
+          <img src="../img/herb.png" alt="" />
+        </div>
+        <h1 class="header__title">
+          Результаты проверки автоматизированного рабочего места пользователя
+          для работы с Информационной системой <br />
+          «Удостоверяющий центр Федерального казначейства»
+        </h1>
       </div>
     </header>
 
@@ -46,28 +53,43 @@
               <h5 class="card__title wow fadeInUp" data-wow-delay="0.4s">
                 Количество действующих сертификатов
               </h5>
-              <h2 class="card__counter">756 466</h2>
-              <div class="card__diagram">
+              <h2 class="card__counter" data-counter="756466">0</h2>
+              <div class="card__diagram wow fadeIn" data-wow-delay="1.4s">
                 <canvas id="chart1" width="150" height="150"></canvas>
               </div>
               <ul class="card__list">
                 <li>
-                  <p>
+                  <p class="fadeIn wow fadeIn" data-wow-delay="1.6s">
                     Физ. лица
                   </p>
-                  <b>705 894</b>
+                  <b
+                    class="wow fadeIn"
+                    data-wow-delay="1.4s"
+                    data-counter="705894"
+                    >0</b
+                  >
                 </li>
                 <li>
-                  <p>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
                     Юр. лица
                   </p>
-                  <b>95 980</b>
+                  <b
+                    class="wow fadeIn"
+                    data-wow-delay="1.4s"
+                    data-counter="95980"
+                    >0</b
+                  >
                 </li>
                 <li>
-                  <p>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
                     ИП
                   </p>
-                  <b>2 474</b>
+                  <b
+                    class="wow fadeIn"
+                    data-wow-delay="1.4s"
+                    data-counter="2474"
+                    >0</b
+                  >
                 </li>
               </ul>
             </div>
@@ -80,25 +102,42 @@
               <h5 class="card__title wow fadeInUp" data-wow-delay="1.2s">
                 Сертификаты, созданные в 2020 году
               </h5>
-              <h2 class="card__counter card__counter--bigger">239 379</h2>
+              <h2
+                class="card__counter card__counter--bigger counter"
+                data-counter="239379"
+              >
+                0
+              </h2>
               <ul class="card__list">
                 <li>
-                  <p>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
                     Физ. лица
                   </p>
-                  <b>178 716</b>
+                  <b
+                    class="wow fadeIn"
+                    data-wow-delay="1.4s"
+                    data-counter="178716"
+                    >0</b
+                  >
                 </li>
                 <li>
-                  <p>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
                     Юр. лица
                   </p>
-                  <b>59 906</b>
+                  <b
+                    class="wow fadeIn"
+                    data-wow-delay="1.4s"
+                    data-counter="59906"
+                    >0</b
+                  >
                 </li>
                 <li>
-                  <p>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
                     ИП
                   </p>
-                  <b>757</b>
+                  <b class="wow fadeIn" data-wow-delay="1.4s" data-counter="757"
+                    >0</b
+                  >
                 </li>
               </ul>
             </div>
@@ -113,8 +152,8 @@
               <h5 class="card__title wow fadeInUp" data-wow-delay="0.6s">
                 Запросы на сертификаты, созданные за 24 часа
               </h5>
-              <h2 class="card__counter">4 770</h2>
-              <div class="card__diagram">
+              <h2 class="card__counter" data-counter="4770">0</h2>
+              <div class="card__diagram wow fadeIn" data-wow-delay="1.4s">
                 <canvas id="chart2" width="150" height="150"></canvas>
               </div>
               <h6 class="card__subtitle wow fadeInUp" data-wow-delay="0.8s">
@@ -124,31 +163,37 @@
               </h6>
               <ul class="card__list">
                 <li>
-                  <p>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
                     Федеральное <br />
                     казначейство
                   </p>
-                  <b>716</b>
+                  <b class="wow fadeIn" data-wow-delay="1.4s" data-counter="716">0</b></b>
                 </li>
                 <li>
-                  <p>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
                     Межрегиональное <br />
                     операционное <br />
                     управление ФК
                   </p>
-                  <b>416</b>
+                  <b class="wow fadeIn" data-wow-delay="1.4s" data-counter="416">0</b></b>
                 </li>
                 <li>
-                  <p>Управление ФК <br />по г. Санкт-<br />Петербургу</p>
-                  <b>316</b>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
+                    Управление ФК <br />по г. Санкт-<br />Петербургу
+                  </p>
+                  <b class="wow fadeIn" data-wow-delay="1.4s" data-counter="316">0</b></b>
                 </li>
                 <li>
-                  <p>Управление ФК <br />по Новгородской <br />области</p>
-                  <b>308</b>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
+                    Управление ФК <br />по Новгородской <br />области
+                  </p>
+                  <b class="wow fadeIn" data-wow-delay="1.4s" data-counter="308">0</b></b>
                 </li>
                 <li>
-                  <p>Управление ФК <br />по Омской области</p>
-                  <b>308</b>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
+                    Управление ФК <br />по Омской области
+                  </p>
+                  <b class="wow fadeIn" data-wow-delay="1.4s" data-counter="308">0</b></b>
                 </li>
               </ul>
             </div>
@@ -163,8 +208,8 @@
               <h5 class="card__title wow fadeInUp" data-wow-delay="0.8s">
                 Сертификаты, созданные за 24 часа
               </h5>
-              <h2 class="card__counter">3 382</h2>
-              <div class="card__diagram">
+              <h2 class="card__counter" data-counter="3382">0</h2>
+              <div class="card__diagram wow fadeIn" data-wow-delay="1.4s">
                 <canvas id="chart3" width="150" height="150"></canvas>
               </div>
               <h6 class="card__subtitle wow fadeInUp" data-wow-delay="1s">
@@ -173,31 +218,37 @@
               </h6>
               <ul class="card__list">
                 <li>
-                  <p>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
                     Федеральное <br />
                     казначейство
                   </p>
-                  <b>654</b>
+                  <b class="wow fadeIn" data-wow-delay="1.4s" data-counter="654">0</b>
                 </li>
                 <li>
-                  <p>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
                     Межрегиональное <br />
                     операционное <br />
                     управление ФК
                   </p>
-                  <b>356</b>
+                  <b class="wow fadeIn" data-wow-delay="1.4s" data-counter="356">0</b>
                 </li>
                 <li>
-                  <p>Управление ФК <br />по г. Санкт-<br />Петербургу</p>
-                  <b>302</b>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
+                    Управление ФК <br />по г. Санкт-<br />Петербургу
+                  </p>
+                  <b class="wow fadeIn" data-wow-delay="1.4s" data-counter="302">0</b>
                 </li>
                 <li>
-                  <p>Управление ФК <br />по Новгородской <br />области</p>
-                  <b>298</b>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
+                    Управление ФК <br />по Новгородской <br />области
+                  </p>
+                  <b class="wow fadeIn" data-wow-delay="1.4s" data-counter="298">0</b>
                 </li>
                 <li>
-                  <p>Управление ФК <br />по Омской области</p>
-                  <b>290</b>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
+                    Управление ФК <br />по Омской области
+                  </p>
+                  <b class="wow fadeIn" data-wow-delay="1.4s" data-counter="290">0</b>
                 </li>
               </ul>
             </div>
@@ -209,58 +260,58 @@
                 <source srcset="../img/house.svg" />
                 <img src="../img/house.png" alt="MDN" />
               </picture>
-              <h5 class="card__title wow fadeIn" data-wow-delay="1s">
+              <h5 class="card__title wow fadeInUp" data-wow-delay="1s">
                 Количество зарегистрированных организаций
               </h5>
-              <h2 class="card__counter">3 382</h2>
-              <div class="card__diagram">
+              <h2 class="card__counter" data-counter="3382">0</h2>
+              <div class="card__diagram wow fadeIn" data-wow-delay="1.4s">
                 <canvas id="chart4" width="150" height="150"></canvas>
               </div>
               <ul class="card__list">
                 <li>
-                  <p>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
                     Федеральный орган <br />
                     исполнительной <br />
                     власти
                   </p>
-                  <b>654</b>
+                  <b class="wow fadeIn" data-wow-delay="1.4s" data-counter="716">0</b>
                 </li>
                 <li>
-                  <p>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
                     Территориальный орган федерального органа исполнительной
                     власти
                   </p>
-                  <b>356</b>
+                  <b class="wow fadeIn" data-wow-delay="1.4s" data-counter="416">0</b>
                 </li>
                 <li>
-                  <p>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
                     Региональный орган <br />
                     исполнительной <br />
                     власти
                   </p>
-                  <b>302</b>
+                  <b class="wow fadeIn" data-wow-delay="1.4s" data-counter="316">0</b>
                 </li>
                 <li>
-                  <p>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
                     Муниципальный <br />
                     орган власти
                   </p>
-                  <b>298</b>
+                  <b class="wow fadeIn" data-wow-delay="1.4s" data-counter="308">0</b>
                 </li>
                 <li>
-                  <p>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
                     Крестьянское <br />
                     (фермерское) <br />
                     хозяйство
                   </p>
-                  <b>290</b>
+                  <b class="wow fadeIn" data-wow-delay="1.4s" data-counter="308">0</b>
                 </li>
                 <li>
-                  <p>
+                  <p class="wow fadeIn" data-wow-delay="1.6s">
                     Иная <br />
                     организация
                   </p>
-                  <b>290</b>
+                  <b class="wow fadeIn" data-wow-delay="1.4s" data-counter="716">0</b>
                 </li>
               </ul>
             </div>
@@ -272,13 +323,15 @@
     <!-- ПОДВАЛ -->
     <footer class="footer">
       <div class="container">
-        ПОДВАЛ
+        <p>© 2020 Федеральное казначейство (Казначейство России)</p>
+        <p>Версия: v2.1.2 от 20.03.2017 1:24:10</p>
       </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/countup@1.8.2/dist/countUp.min.js"></script>
     <script src="../js/script.js"></script>
   </body>
 </html>

@@ -276,37 +276,33 @@ body {
     z-index: 0;
     right: 0;
     top: 20px;
-    pointer-events: none;
-    visibility: hidden; }
+    pointer-events: none; }
   .card__title {
     font-size: 14px;
     font-weight: 500;
     line-height: 18px;
     max-width: calc(100% - 30px);
     margin-bottom: 25.5px;
-    min-height: 54px;
-    visibility: hidden; }
+    min-height: 54px; }
   .card__subtitle {
     font-size: 13px;
     font-weight: 500;
     line-height: 15px;
     padding: 12px 0;
     margin: 0 -4px;
-    border-top: 1px solid #eaeaea;
-    visibility: hidden; }
+    border-top: 1px solid #eaeaea; }
   .card__counter {
     font-size: 42px;
     font-weight: 700;
     line-height: 28px;
     letter-spacing: 0.21px;
-    margin-bottom: 16px;
-    visibility: hidden; }
+    margin-bottom: 16px; }
     .card__counter--bigger {
       font-size: 44px; }
   .card__diagram {
+    height: 224px;
     padding: 17px 0 23px;
-    margin: 0 -2px;
-    visibility: hidden; }
+    margin: 0 -2px; }
   .card__list {
     margin: 0 -20px; }
     .card__list li {
@@ -318,8 +314,7 @@ body {
       font-size: 12px;
       font-weight: 400;
       line-height: 15px;
-      letter-spacing: 0.06px;
-      visibility: hidden; }
+      letter-spacing: 0.06px; }
       .card__list li:not(:first-child) {
         margin-top: 1px; }
       .card__list li:nth-child(1) {
@@ -383,3 +378,39 @@ body {
 
 .wow {
   visibility: hidden; }
+
+.header {
+  padding: 25px 0; }
+  .header__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+  .header__logo {
+    margin-right: 20px; }
+  .header__title {
+    color: #303030;
+    font-family: "Fira Sans", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: -0.2px;
+    max-width: 700px;
+    margin: 0; }
+
+.footer {
+  padding: 45px 0 20px; }
+  .footer p {
+    font-family: "Fira Sans", Arial, sans-serif;
+    font-weight: 400;
+    line-height: 16px;
+    margin: 0; }
+    .footer p:first-child {
+      color: #303030;
+      font-size: 14px;
+      margin-bottom: 5px; }
+    .footer p:last-child {
+      color: #a8a8a8;
+      font-size: 13px; }
