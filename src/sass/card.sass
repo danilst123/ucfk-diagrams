@@ -1,0 +1,111 @@
+.card
+  height: 100%
+  position: relative
+  background: #fff
+  border-top: 5px solid #2999d6
+  padding: 30px 20px 1px
+  color: #303030
+  font-family: $main_font
+
+  &__pic
+    position: absolute
+    z-index: 0
+    right: 0
+    top: 20px
+    pointer-events: none
+    visibility: hidden
+
+  &__title
+    font-size: 14px
+    font-weight: 500
+    line-height: 18px
+    max-width: calc(100% - 30px)
+    margin-bottom: 25.5px
+    min-height: 54px
+    visibility: hidden
+
+  &__subtitle
+    font-size: 13px
+    font-weight: 500
+    line-height: 15px
+    padding: 12px 0
+    margin: 0 -4px
+    border-top: 1px solid #eaeaea
+    visibility: hidden
+
+  &__counter
+    font-size: 42px
+    font-weight: 700
+    line-height: 28px
+    letter-spacing: 0.21px
+    margin-bottom: 16px
+    visibility: hidden
+    &--bigger
+      font-size: 44px
+
+  &__diagram
+    padding: 17px 0 23px
+    margin: 0 -2px
+    visibility: hidden
+
+  &__list
+    margin: 0 -20px
+    
+    li
+      min-height: 40px
+      position: relative
+      border-left: 5px solid transparent
+      padding: 12px 60px 12px 13px
+      color: #8a8e90
+      font-size: 12px
+      font-weight: 400
+      line-height: 15px
+      letter-spacing: 0.06px
+      visibility: hidden
+
+      &:not(:first-child)
+        margin-top: 1px
+
+      &:nth-child(1)
+        border-color: #2999d6
+      &:nth-child(2)
+        border-color: #7bbee2
+      &:nth-child(3)
+        border-color: #29c8d6
+      &:nth-child(4)
+        border-color: #0ac883
+      &:nth-child(5)
+        border-color: #46a06a
+      &:nth-child(6)
+        border-color: #b5c97d
+
+      &:before
+        content: ''
+        height: 1px
+        background: #eaeaea
+        position: absolute
+        z-index: 2
+        top: 0
+        left: 13px
+        right: 18px
+
+      p
+        margin: 0
+
+      b
+        position: absolute
+        top: 10px
+        right: 18px
+        color: #303030
+        font-size: 18px
+        font-weight: 700
+        line-height: 1
+
+  &--additional
+    border-color: #d5dce0
+    .card__title
+      min-height: auto
+    .card__list
+      li
+        border-color: transparent !important
+
