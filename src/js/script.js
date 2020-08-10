@@ -263,8 +263,6 @@ $(function () {
       cards: cards,
     },
     mounted: function () {
-      new WOW().init();
-
       var canvases = this.$refs.canvas;
 
       setTimeout(function () {
@@ -273,32 +271,48 @@ $(function () {
         }
       }, 1900);
 
-      $("[data-counter]").each(function () {
-        var num = parseInt($(this).data("counter")); //end count
-        var counts = new CountUp(this, 0, num, null, 1, counterOptions);
+      function buildCounter(activeSlide) {
+        activeSlide.find("[data-counter]").each(function () {
+          var num = parseInt($(this).data("counter")); //end count
+          var counts = new CountUp(this, 0, num, null, 1, counterOptions);
 
-        setTimeout(function () {
-          counts.start();
-        }, 1900);
-      });
-
-      function buildSlick() {
-        if (window.innerWidth > 940) {
-          $(".grid.slick-initialized").slick("unslick");
-        } else {
-          $(".grid").slick({
-            centerMode: true,
-            slidesToShow: 1,
-            arrows: false,
-            dots: false,
-          });
-        }
+          setTimeout(function () {
+            counts.start();
+            activeSlide.addClass("ANIM");
+          }, 1900);
+        });
       }
 
-      buildSlick();
+      $(".grid").on("init", function () {
+        var activeSlide = $(".slick-active");
+        buildCounter(activeSlide);
+      });
 
-      window.addEventListener("resize", function () {
-        buildSlick();
+      $(".grid").on("afterChange", function (slick, index, currentSlide) {
+        var activeSlide = $("[data-slick-index=" + currentSlide + "]");
+        if (!activeSlide.hasClass("ANIM")) {
+          buildCounter(activeSlide);
+        }
+      });
+
+      $(".grid").slick({
+        dots: false,
+        arrows: false,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [
+          {
+            breakpoint: 940,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              centerMode: true,
+              infinite: true,
+            },
+          },
+        ],
       });
     },
     methods: {
