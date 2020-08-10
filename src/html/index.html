@@ -27,7 +27,7 @@
   </head>
   <body>
     <!-- ШАПКА -->
-    <header class="header">
+    <!-- <header class="header">
       <div class="container header__container">
         <div class="header__logo">
           <img src="../img/herb.png" alt="" />
@@ -38,34 +38,34 @@
           «Удостоверяющий центр Федерального казначейства»
         </h1>
       </div>
-    </header>
+    </header> -->
 
     <!-- КОНТЕНТ -->
     <main class="page">
       <div class="container">
         <div id="app">
-          <div class="grid animated fadeIn">
+          <div class="grid">
             <div class="grid__item" v-for="(card, cardIndex) in cards">
               <div
-                class="card wow fadeIn"
-                v-bind:data-wow-delay="animationDelay(cardIndex, 0)"
+                class="card animated fadeIn"
+                v-bind:style="{animationDelay: animationDelay(cardIndex, 0)}"
               >
                 <img
-                  class="card__pic wow fadeIn"
+                  class="card__pic animated fadeIn"
                   alt=""
                   v-bind:src="card.icon"
-                  v-bind:data-wow-delay="animationDelay(cardIndex, 1)"
+                  v-bind:style="{animationDelay: animationDelay(cardIndex, 1)}"
                 />
                 <h5
-                  class="card__title wow fadeIn"
-                  v-bind:data-wow-delay="animationDelay(cardIndex, 1)"
+                  class="card__title animated fadeIn"
+                  v-bind:style="{animationDelay: animationDelay(cardIndex, 1)}"
                 >
                   {{ card.title }}
                 </h5>
                 <h2
-                  class="card__counter wow fadeIn"
+                  class="card__counter animated fadeIn"
                   v-bind:data-counter="totalCount(card)"
-                  v-bind:data-wow-delay="animationDelay(2, 3)"
+                  v-bind:style="{animationDelay: animationDelay(2, 3)}"
                 >
                   0
                 </h2>
@@ -78,29 +78,29 @@
                   ></canvas>
                 </div>
                 <h6
-                  class="card__subtitle wow fadeIn"
+                  class="card__subtitle animated fadeIn"
                   v-if="card.subtitle"
-                  v-bind:data-wow-delay="animationDelay(cardIndex, 2)"
+                  v-bind:style="{animationDelay: animationDelay(cardIndex, 2)}"
                 >
                   {{ card.subtitle}}
                 </h6>
                 <ul class="card__list">
                   <li v-for="(item, i) in card.infoList">
                     <span
-                      class="wow fadeIn"
-                      v-bind:data-wow-delay="animationDelay(3, 4)"
+                      class="animated fadeIn"
+                      v-bind:style="{animationDelay: animationDelay(3, 4)}"
                     ></span>
                     <div>
                       <p
-                        class="wow fadeIn"
-                        v-bind:data-wow-delay="animationDelay(3, 4)"
+                        class="animated fadeIn"
+                        v-bind:style="{animationDelay: animationDelay(3, 4)}"
                       >
                         {{ item.title }}
                       </p>
                       <b
-                        class="wow fadeIn"
+                        class="animated fadeIn"
                         v-bind:data-counter="item.count"
-                        v-bind:data-wow-delay="animationDelay(2, 3)"
+                        v-bind:style="{animationDelay: animationDelay(2, 3)}"
                         >0</b
                       >
                     </div>
@@ -108,9 +108,9 @@
                 </ul>
               </div>
               <div
-                class="card card--additional wow fadeIn"
+                class="card card--additional animated fadeIn"
                 v-if="card.additionalCard"
-                v-bind:data-wow-delay="animationDelay(cardIndex, 4)"
+                v-bind:style="{animationDelay: animationDelay(cardIndex, 4)}"
               >
                 <img
                   class="card__pic"
@@ -118,15 +118,15 @@
                   alt=""
                 />
                 <h5
-                  class="card__title wow fadeIn"
-                  v-bind:data-wow-delay="animationDelay(cardIndex, 5)"
+                  class="card__title animated fadeIn"
+                  v-bind:style="{animationDelay: animationDelay(cardIndex, 5)}"
                 >
                   {{ card.additionalCard.title }}
                 </h5>
                 <h2
-                  class="card__counter wow fadeIn"
+                  class="card__counter animated fadeIn"
                   v-bind:data-counter="totalCount(card.additionalCard)"
-                  v-bind:data-wow-delay="animationDelay(2, 4)"
+                  v-bind:style="{animationDelay: animationDelay(2, 4)}"
                 >
                   0
                 </h2>
@@ -136,20 +136,20 @@
                 <ul class="card__list">
                   <li v-for="(item, i) in card.additionalCard.infoList">
                     <span
-                      class="wow fadeIn"
-                      v-bind:data-wow-delay="animationDelay(3, 4)"
+                      class="animated fadeIn"
+                      v-bind:style="{animationDelay: animationDelay(3, 4)}"
                     ></span>
                     <div>
                       <p
-                        class="wow fadeIn"
-                        v-bind:data-wow-delay="animationDelay(3, 4)"
+                        class="animated fadeIn"
+                        v-bind:style="{animationDelay: animationDelay(3, 4)}"
                       >
                         {{ item.title }}
                       </p>
                       <b
-                        class="wow fadeIn"
+                        class="animated fadeIn"
                         v-bind:data-counter="item.count"
-                        v-bind:data-wow-delay="animationDelay(2, 4)"
+                        v-bind:style="{animationDelay: animationDelay(2, 4)}"
                         >0</b
                       >
                     </div>

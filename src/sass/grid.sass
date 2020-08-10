@@ -1,5 +1,4 @@
 .grid
-  min-height: 500px
   display: flex
   justify-content: space-between
   margin: 0 -10px
@@ -7,9 +6,12 @@
     margin: 0 -15px
 
   &__item
-    width: calc(100% / 4 - 20px)
     margin: 0 10px
     @media screen and ( max-width: $sm-max )
       width: 75vw !important
 
 
+  .animated
+    @media screen and ( max-width: $sm-max )
+      animation-name: none;
+      opacity: 0

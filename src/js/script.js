@@ -266,14 +266,13 @@ $(function () {
       isMounted: false,
     },
     mounted: function () {
-      var delay = isMobile ? 100 : 2200;
+      var delay = isMobile ? 800 : 2000;
       var canvases = this.$refs.canvas;
-
-      new WOW().init();
 
       $(".grid").on("init", function () {
         var activeSlide = $(".slick-active");
 
+        addActiveSlideAnimation(activeSlide);
         buildCounter(activeSlide, delay);
         buildDiagram(activeSlide, delay);
       });
@@ -282,6 +281,7 @@ $(function () {
         var activeSlide = $("[data-slick-index=" + currentSlide + "]");
 
         if (!activeSlide.hasClass("SLIDE_ANIMATED")) {
+          addActiveSlideAnimation(activeSlide);
           buildCounter(activeSlide, delay);
           buildDiagram(activeSlide, delay);
         }
@@ -329,6 +329,14 @@ $(function () {
           }, delay);
         });
       }
+
+      function addActiveSlideAnimation(activeSlide) {
+        $(".card").css({ "animation-name": "fadeIn", visibility: "visible" });
+
+        $(activeSlide)
+          .find(".animated")
+          .css({ "animation-name": "fadeIn", visibility: "visible" });
+      }
     },
     methods: {
       totalCount: function (card) {
@@ -342,10 +350,11 @@ $(function () {
         return sum;
       },
       animationDelay: function (index, indent) {
-        if (!isMobile) {
-          var delay = 0.2 * (index + indent);
-          return delay.toFixed(1) + "s";
-        }
+        var k = isMobile ? 0.1 : 0.2;
+        index = isMobile ? 0.1 : index;
+        var delay = k * (index + indent);
+
+        return delay.toFixed(1) + "s";
       },
     },
   });

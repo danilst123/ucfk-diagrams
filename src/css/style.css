@@ -254,7 +254,6 @@ body {
   margin: 0 auto; }
 
 .grid {
-  min-height: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -266,11 +265,15 @@ body {
     .grid {
       margin: 0 -15px; } }
   .grid__item {
-    width: calc(100% / 4 - 20px);
     margin: 0 10px; }
     @media screen and (max-width: 969px) {
       .grid__item {
         width: 75vw !important; } }
+  @media screen and (max-width: 969px) {
+    .grid .animated {
+      -webkit-animation-name: none;
+      animation-name: none;
+      opacity: 0; } }
 
 .card {
   position: relative;
