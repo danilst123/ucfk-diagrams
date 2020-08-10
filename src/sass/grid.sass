@@ -1,6 +1,4 @@
 .grid
-  display: flex
-  justify-content: space-between
   margin: 0 -10px
   @media screen and ( max-width: $sm-max )
     margin: 0 -15px
@@ -8,7 +6,7 @@
   &__item
     margin: 0 10px
     @media screen and ( max-width: $sm-max )
-      width: 75vw !important
+      width: calc(100vw - 80px) !important
 
 
   .animated

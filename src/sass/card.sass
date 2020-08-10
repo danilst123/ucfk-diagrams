@@ -17,7 +17,7 @@
     font-size: 14px
     font-weight: 500
     line-height: 18px
-    max-width: calc(100% - 35px)
+    max-width: calc(100% - 30px)
     margin-bottom: 25.5px
     min-height: 54px
 
@@ -25,7 +25,7 @@
     font-size: 13px
     font-weight: 500
     line-height: 15px
-    padding: 12px 0
+    padding: 13.5px 0
     margin: 0 -4px
     border-top: 1px solid #eaeaea
 
@@ -39,22 +39,25 @@
       font-size: 44px
 
   &__diagram
-    min-height: 224px
-    padding: 17px 0 23px
-    margin: 0 -2px
-
+    padding: 17px 17px 23px
+    @media screen and ( max-width: $xxs-max )
+      padding-right: 27px
+      padding-left: 27px
+        
+      
   &__list
-    margin: 0 -20px
-    
+    margin: 0 -20px    
     li
       overflow: hidden
       position: relative
-      padding: 11px 13px 11px 18px
+      padding: 13.5px 13px 13.5px 18px
       color: #8a8e90
       font-size: 12px
       font-weight: 400
       line-height: 15px
       letter-spacing: 0.06px
+      @media screen and ( max-width: $sm-max )
+        padding-right: 20px
 
       &:not(:first-child)
         margin-top: 1px
@@ -100,20 +103,21 @@
         text-align: left
 
       b
-        min-width: 40px
         color: #303030
         font-size: 18px
         font-weight: 700
         text-align: right
-        line-height: 1
-        margin-left: 10px
-        margin-top: 2px
+        line-height: 15px
+        margin-left: 5px
+        transform: translateY(1.5px)
 
   &--additional
     border-color: #d5dce0
+    padding-bottom: 10.5px
     .card__title
       min-height: auto
+    .card__counter
     .card__list
-      li
-        border-color: transparent !important
+      span
+        background: none !important
 
