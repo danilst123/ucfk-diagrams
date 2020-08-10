@@ -272,8 +272,13 @@ $(function () {
       $(".grid").on("init", function () {
         var activeSlide = $(".slick-active");
 
-        addActiveSlideAnimation(activeSlide);
+        addAnimation($(".card"));
+        addAnimation($(".slick-cloned").find(".animated"));
+        addAnimation(activeSlide.find(".animated"));
+
+        buildCounter($(".slick-cloned"), delay);
         buildCounter(activeSlide, delay);
+
         buildDiagram(activeSlide, delay);
       });
 
@@ -281,7 +286,7 @@ $(function () {
         var activeSlide = $("[data-slick-index=" + currentSlide + "]");
 
         if (!activeSlide.hasClass("SLIDE_ANIMATED")) {
-          addActiveSlideAnimation(activeSlide);
+          addAnimation(activeSlide.find(".animated"));
           buildCounter(activeSlide, delay);
           buildDiagram(activeSlide, delay);
         }
@@ -308,21 +313,21 @@ $(function () {
         ],
       });
 
-      function buildCounter(activeSlide, delay) {
-        activeSlide.find("[data-counter]").each(function () {
+      function buildCounter(target, delay) {
+        target.find("[data-counter]").each(function () {
           var num = parseInt($(this).data("counter"));
           var counts = new CountUp(this, 0, num, null, 1, counterOptions);
 
           setTimeout(function () {
             counts.start();
-            activeSlide.addClass("SLIDE_ANIMATED");
+            target.addClass("SLIDE_ANIMATED");
           }, delay);
         });
       }
 
-      function buildDiagram(activeSlide, delay) {
-        $(activeSlide, delay).each(function (index, element) {
-          var i = $(this).data("slick-index");
+      function buildDiagram(target, delay) {
+        target.each(function (index, element) {
+          var i = $(this).data("index");
 
           setTimeout(function () {
             new Chart(canvases[i], cards[i].diagram);
@@ -330,12 +335,9 @@ $(function () {
         });
       }
 
-      function addActiveSlideAnimation(activeSlide) {
-        $(".card").css({ "animation-name": "fadeIn", visibility: "visible" });
-
-        $(activeSlide)
-          .find(".animated")
-          .css({ "animation-name": "fadeIn", visibility: "visible" });
+      function addAnimation(target) {
+        console.log(target);
+        target.css({ "animation-name": "fadeIn", visibility: "visible" });
       }
     },
     methods: {

@@ -45,7 +45,11 @@
       <div class="container">
         <div id="app">
           <div class="grid">
-            <div class="grid__item" v-for="(card, cardIndex) in cards">
+            <div
+              class="grid__item"
+              v-for="(card, cardIndex) in cards"
+              v-bind:data-index="cardIndex"
+            >
               <div
                 class="card animated fadeIn"
                 v-bind:style="{animationDelay: animationDelay(cardIndex, 0)}"
@@ -70,12 +74,7 @@
                   0
                 </h2>
                 <div class="card__diagram">
-                  <canvas
-                    ref="canvas"
-                    v-bind:id="'chart' + cardIndex"
-                    width="150"
-                    height="150"
-                  ></canvas>
+                  <canvas ref="canvas" width="150" height="150"></canvas>
                 </div>
                 <h6
                   class="card__subtitle animated fadeIn"
