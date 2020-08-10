@@ -282,6 +282,9 @@ body {
     right: 0;
     top: 20px;
     pointer-events: none; }
+    @media screen and (max-width: 969px) {
+      .card__pic {
+        display: none !important; } }
   .card__title {
     font-size: 14px;
     font-weight: 500;
@@ -289,6 +292,12 @@ body {
     max-width: calc(100% - 30px);
     margin-bottom: 25.5px;
     min-height: 54px; }
+    @media screen and (max-width: 969px) {
+      .card__title {
+        max-width: 100%;
+        text-align: center; }
+        .card__title br {
+          display: none; } }
   .card__subtitle {
     font-size: 13px;
     font-weight: 500;
@@ -304,6 +313,9 @@ body {
     margin-bottom: 16px; }
     .card__counter--bigger {
       font-size: 44px; }
+    @media screen and (max-width: 969px) {
+      .card__counter {
+        text-align: center; } }
   .card__diagram {
     padding: 17px 17px 23px; }
     @media screen and (max-width: 480px) {

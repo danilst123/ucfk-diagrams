@@ -301,7 +301,7 @@ $(function () {
         slidesToScroll: 4,
         responsive: [
           {
-            breakpoint: 940,
+            breakpoint: 969,
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1,
@@ -336,7 +336,6 @@ $(function () {
       }
 
       function addAnimation(target) {
-        console.log(target);
         target.css({ "animation-name": "fadeIn", visibility: "visible" });
       }
     },

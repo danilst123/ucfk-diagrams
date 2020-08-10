@@ -12,6 +12,8 @@
     right: 0
     top: 20px
     pointer-events: none
+    @media screen and ( max-width: $sm-max )
+      display: none !important
 
   &__title
     font-size: 14px
@@ -20,6 +22,11 @@
     max-width: calc(100% - 30px)
     margin-bottom: 25.5px
     min-height: 54px
+    @media screen and ( max-width: $sm-max )
+      max-width: 100%
+      text-align: center
+      br
+        display: none
 
   &__subtitle
     font-size: 13px
@@ -37,6 +44,8 @@
     margin-bottom: 16px
     &--bigger
       font-size: 44px
+    @media screen and ( max-width: $sm-max )
+      text-align: center
 
   &__diagram
     padding: 17px 17px 23px
