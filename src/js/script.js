@@ -281,6 +281,25 @@ $(function () {
           counts.start();
         }, 1900);
       });
+
+      function buildSlick() {
+        if (window.innerWidth > 940) {
+          $(".grid.slick-initialized").slick("unslick");
+        } else {
+          $(".grid").slick({
+            centerMode: true,
+            slidesToShow: 1,
+            arrows: false,
+            dots: false,
+          });
+        }
+      }
+
+      buildSlick();
+
+      window.addEventListener("resize", function () {
+        buildSlick();
+      });
     },
     methods: {
       totalCount: function (card) {
