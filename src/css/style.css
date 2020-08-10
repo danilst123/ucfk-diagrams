@@ -254,17 +254,16 @@ body {
   margin: 0 auto; }
 
 .grid {
-  display: table;
-  table-layout: fixed;
-  width: calc(100% + 20px);
-  min-height: 600px;
-  margin: 0 -10px; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
   .grid__item {
-    display: table-cell;
-    padding: 0 10px; }
+    width: calc(100% / 4 - 20px); }
 
 .card {
-  height: 100%;
   position: relative;
   background: #fff;
   border-top: 5px solid #2999d6;
@@ -306,10 +305,16 @@ body {
   .card__list {
     margin: 0 -20px; }
     .card__list li {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
       min-height: 40px;
       position: relative;
       border-left: 5px solid transparent;
-      padding: 12px 60px 12px 13px;
+      padding: 11px 13px;
       color: #8a8e90;
       font-size: 12px;
       font-weight: 400;
@@ -341,13 +346,14 @@ body {
       .card__list li p {
         margin: 0; }
       .card__list li b {
-        position: absolute;
-        top: 10px;
-        right: 18px;
+        min-width: 40px;
         color: #303030;
         font-size: 18px;
         font-weight: 700;
-        line-height: 1; }
+        text-align: right;
+        line-height: 1;
+        margin-left: 10px;
+        margin-top: 2px; }
   .card--additional {
     border-color: #d5dce0; }
     .card--additional .card__title {

@@ -1,5 +1,4 @@
 .card
-  height: 100%
   position: relative
   background: #fff
   border-top: 5px solid #2999d6
@@ -48,10 +47,12 @@
     margin: 0 -20px
     
     li
+      display: flex
+      justify-content: space-between
       min-height: 40px
       position: relative
       border-left: 5px solid transparent
-      padding: 12px 60px 12px 13px
+      padding: 11px 13px
       color: #8a8e90
       font-size: 12px
       font-weight: 400
@@ -88,13 +89,14 @@
         margin: 0
 
       b
-        position: absolute
-        top: 10px
-        right: 18px
+        min-width: 40px
         color: #303030
         font-size: 18px
         font-weight: 700
+        text-align: right
         line-height: 1
+        margin-left: 10px
+        margin-top: 2px
 
   &--additional
     border-color: #d5dce0
