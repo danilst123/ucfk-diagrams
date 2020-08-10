@@ -257,49 +257,33 @@ $(function () {
     },
   ];
 
+  var isMobile = window.innerWidth < 940;
+
   var app = new Vue({
     el: "#app",
     data: {
       cards: cards,
+      isMounted: false,
     },
     mounted: function () {
+      var delay = isMobile ? 100 : 2200;
       var canvases = this.$refs.canvas;
 
-      function buildCounter(activeSlide) {
-        activeSlide.find("[data-counter]").each(function () {
-          var num = parseInt($(this).data("counter")); //end count
-          var counts = new CountUp(this, 0, num, null, 1, counterOptions);
-
-          setTimeout(function () {
-            counts.start();
-            activeSlide.addClass("COUNTER_ANIMATED");
-          }, 1900);
-        });
-      }
-
-      function buildDiagram(activeSlide) {
-        $(activeSlide).each(function (index, element) {
-          var i = $(this).data("slick-index");
-
-          setTimeout(function () {
-            new Chart(canvases[i], cards[i].diagram);
-          }, 1900);
-        });
-      }
+      new WOW().init();
 
       $(".grid").on("init", function () {
         var activeSlide = $(".slick-active");
 
-        buildCounter(activeSlide);
-        buildDiagram(activeSlide);
+        buildCounter(activeSlide, delay);
+        buildDiagram(activeSlide, delay);
       });
 
       $(".grid").on("afterChange", function (slick, index, currentSlide) {
         var activeSlide = $("[data-slick-index=" + currentSlide + "]");
 
-        if (!activeSlide.hasClass("COUNTER_ANIMATED")) {
-          buildCounter(activeSlide);
-          buildDiagram(activeSlide);
+        if (!activeSlide.hasClass("SLIDE_ANIMATED")) {
+          buildCounter(activeSlide, delay);
+          buildDiagram(activeSlide, delay);
         }
       });
 
@@ -318,26 +302,50 @@ $(function () {
               slidesToScroll: 1,
               centerMode: true,
               infinite: true,
+              variableWidth: true,
             },
           },
         ],
       });
+
+      function buildCounter(activeSlide, delay) {
+        activeSlide.find("[data-counter]").each(function () {
+          var num = parseInt($(this).data("counter"));
+          var counts = new CountUp(this, 0, num, null, 1, counterOptions);
+
+          setTimeout(function () {
+            counts.start();
+            activeSlide.addClass("SLIDE_ANIMATED");
+          }, delay);
+        });
+      }
+
+      function buildDiagram(activeSlide, delay) {
+        $(activeSlide, delay).each(function (index, element) {
+          var i = $(this).data("slick-index");
+
+          setTimeout(function () {
+            new Chart(canvases[i], cards[i].diagram);
+          }, delay);
+        });
+      }
     },
     methods: {
       totalCount: function (card) {
         var arr = card.infoList;
         var sum = 0;
 
-        for (var index = 0; index < arr.length; index++) {
-          sum += arr[index].count;
+        for (var i = 0; i < arr.length; i++) {
+          sum += arr[i].count;
         }
 
         return sum;
       },
-      animationDealy: function (k, index, indent) {
-        var delay = k + 0.1 * index + indent;
-
-        return delay + "s";
+      animationDelay: function (index, indent) {
+        if (!isMobile) {
+          var delay = 0.2 * (index + indent);
+          return delay.toFixed(1) + "s";
+        }
       },
     },
   });

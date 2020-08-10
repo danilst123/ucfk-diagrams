@@ -44,74 +44,115 @@
     <main class="page">
       <div class="container">
         <div id="app">
-          <div class="grid animated fadeIn" style="transition-delay: 0.2s;">
-            <div class="grid__item" v-for="(card, index) in cards">
-              <div class="card">
+          <div class="grid animated fadeIn">
+            <div class="grid__item" v-for="(card, cardIndex) in cards">
+              <div
+                class="card wow fadeIn"
+                v-bind:data-wow-delay="animationDelay(cardIndex, 0)"
+              >
                 <img
-                  class="card__pic animated fadeIn"
+                  class="card__pic wow fadeIn"
+                  alt=""
                   v-bind:src="card.icon"
-                  alt="MDN"
+                  v-bind:data-wow-delay="animationDelay(cardIndex, 1)"
                 />
-                <h5 class="card__title animated fadeIn">
+                <h5
+                  class="card__title wow fadeIn"
+                  v-bind:data-wow-delay="animationDelay(cardIndex, 1)"
+                >
                   {{ card.title }}
                 </h5>
                 <h2
-                  class="card__counter"
+                  class="card__counter wow fadeIn"
                   v-bind:data-counter="totalCount(card)"
+                  v-bind:data-wow-delay="animationDelay(2, 3)"
                 >
                   0
                 </h2>
-                <div class="card__diagram animated fadeIn">
+                <div class="card__diagram">
                   <canvas
                     ref="canvas"
-                    v-bind:id="'chart' + index"
+                    v-bind:id="'chart' + cardIndex"
                     width="150"
                     height="150"
                   ></canvas>
                 </div>
-                <h6 class="card__subtitle animated fadeIn" v-if="card.subtitle">
+                <h6
+                  class="card__subtitle wow fadeIn"
+                  v-if="card.subtitle"
+                  v-bind:data-wow-delay="animationDelay(cardIndex, 2)"
+                >
                   {{ card.subtitle}}
                 </h6>
                 <ul class="card__list">
-                  <li v-for="(item, index) in card.infoList">
-                    <p class="animated fadeIn">
-                      {{ item.title }}
-                    </p>
-                    <b class="animated fadeIn" v-bind:data-counter="item.count"
-                      >0</b
-                    >
+                  <li v-for="(item, i) in card.infoList">
+                    <span
+                      class="wow fadeIn"
+                      v-bind:data-wow-delay="animationDelay(3, 4)"
+                    ></span>
+                    <div>
+                      <p
+                        class="wow fadeIn"
+                        v-bind:data-wow-delay="animationDelay(3, 4)"
+                      >
+                        {{ item.title }}
+                      </p>
+                      <b
+                        class="wow fadeIn"
+                        v-bind:data-counter="item.count"
+                        v-bind:data-wow-delay="animationDelay(2, 3)"
+                        >0</b
+                      >
+                    </div>
                   </li>
                 </ul>
               </div>
-              <div v-if="card.additionalCard" class="card card--additional">
+              <div
+                class="card card--additional wow fadeIn"
+                v-if="card.additionalCard"
+                v-bind:data-wow-delay="animationDelay(cardIndex, 4)"
+              >
                 <img
-                  class="card__pic animated fadeIn"
+                  class="card__pic"
                   v-bind:src="card.additionalCard.icon"
-                  alt="MDN"
+                  alt=""
                 />
-                <h5 class="card__title animated fadeIn">
+                <h5
+                  class="card__title wow fadeIn"
+                  v-bind:data-wow-delay="animationDelay(cardIndex, 5)"
+                >
                   {{ card.additionalCard.title }}
                 </h5>
                 <h2
-                  class="card__counter"
+                  class="card__counter wow fadeIn"
                   v-bind:data-counter="totalCount(card.additionalCard)"
+                  v-bind:data-wow-delay="animationDelay(2, 4)"
                 >
                   0
                 </h2>
-                <h6
-                  class="card__subtitle animated fadeIn"
-                  v-if="card.additionalCard.subtitle"
-                >
+                <h6 class="card__subtitle" v-if="card.additionalCard.subtitle">
                   {{ card.additionalCard.subtitle}}
                 </h6>
                 <ul class="card__list">
-                  <li v-for="(item, index) in card.additionalCard.infoList">
-                    <p class="animated fadeIn">
-                      {{ item.title }}
-                    </p>
-                    <b class="animated fadeIn" v-bind:data-counter="item.count"
-                      >0</b
-                    >
+                  <li v-for="(item, i) in card.additionalCard.infoList">
+                    <span
+                      class="wow fadeIn"
+                      v-bind:data-wow-delay="animationDelay(3, 4)"
+                    ></span>
+                    <div>
+                      <p
+                        class="wow fadeIn"
+                        v-bind:data-wow-delay="animationDelay(3, 4)"
+                      >
+                        {{ item.title }}
+                      </p>
+                      <b
+                        class="wow fadeIn"
+                        v-bind:data-counter="item.count"
+                        v-bind:data-wow-delay="animationDelay(2, 4)"
+                        >0</b
+                      >
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -134,6 +175,7 @@
     <script src="https://cdn.jsdelivr.net/npm/countup@1.8.2/dist/countUp.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script src="../js/script.js"></script>
   </body>
 </html>

@@ -47,12 +47,9 @@
     margin: 0 -20px
     
     li
-      display: flex
-      justify-content: space-between
-      min-height: 40px
+      overflow: hidden
       position: relative
-      border-left: 5px solid transparent
-      padding: 11px 13px
+      padding: 11px 13px 11px 18px
       color: #8a8e90
       font-size: 12px
       font-weight: 400
@@ -61,19 +58,6 @@
 
       &:not(:first-child)
         margin-top: 1px
-
-      &:nth-child(1)
-        border-color: #2999d6
-      &:nth-child(2)
-        border-color: #7bbee2
-      &:nth-child(3)
-        border-color: #29c8d6
-      &:nth-child(4)
-        border-color: #0ac883
-      &:nth-child(5)
-        border-color: #46a06a
-      &:nth-child(6)
-        border-color: #b5c97d
 
       &:before
         content: ''
@@ -85,8 +69,35 @@
         left: 13px
         right: 18px
 
+      div
+        display: flex
+        justify-content: space-between
+
+      span
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 2
+        height: 100%
+        width: 5px
+        order: 1
+
+      &:nth-child(1) span
+        background: #2999d6
+      &:nth-child(2) span
+        background: #7bbee2
+      &:nth-child(3) span
+        background: #29c8d6
+      &:nth-child(4) span
+        background: #0ac883
+      &:nth-child(5) span
+        background: #46a06a
+      &:nth-child(6) span
+        background: #b5c97d
+
       p
         margin: 0
+        text-align: left
 
       b
         min-width: 40px

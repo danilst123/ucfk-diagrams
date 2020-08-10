@@ -254,6 +254,7 @@ body {
   margin: 0 auto; }
 
 .grid {
+  min-height: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -267,6 +268,9 @@ body {
   .grid__item {
     width: calc(100% / 4 - 20px);
     margin: 0 10px; }
+    @media screen and (max-width: 969px) {
+      .grid__item {
+        width: 75vw !important; } }
 
 .card {
   position: relative;
@@ -310,16 +314,9 @@ body {
   .card__list {
     margin: 0 -20px; }
     .card__list li {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
-      min-height: 40px;
+      overflow: hidden;
       position: relative;
-      border-left: 5px solid transparent;
-      padding: 11px 13px;
+      padding: 11px 13px 11px 18px;
       color: #8a8e90;
       font-size: 12px;
       font-weight: 400;
@@ -327,18 +324,6 @@ body {
       letter-spacing: 0.06px; }
       .card__list li:not(:first-child) {
         margin-top: 1px; }
-      .card__list li:nth-child(1) {
-        border-color: #2999d6; }
-      .card__list li:nth-child(2) {
-        border-color: #7bbee2; }
-      .card__list li:nth-child(3) {
-        border-color: #29c8d6; }
-      .card__list li:nth-child(4) {
-        border-color: #0ac883; }
-      .card__list li:nth-child(5) {
-        border-color: #46a06a; }
-      .card__list li:nth-child(6) {
-        border-color: #b5c97d; }
       .card__list li:before {
         content: '';
         height: 1px;
@@ -348,8 +333,38 @@ body {
         top: 0;
         left: 13px;
         right: 18px; }
+      .card__list li div {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between; }
+      .card__list li span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        height: 100%;
+        width: 5px;
+        -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+        order: 1; }
+      .card__list li:nth-child(1) span {
+        background: #2999d6; }
+      .card__list li:nth-child(2) span {
+        background: #7bbee2; }
+      .card__list li:nth-child(3) span {
+        background: #29c8d6; }
+      .card__list li:nth-child(4) span {
+        background: #0ac883; }
+      .card__list li:nth-child(5) span {
+        background: #46a06a; }
+      .card__list li:nth-child(6) span {
+        background: #b5c97d; }
       .card__list li p {
-        margin: 0; }
+        margin: 0;
+        text-align: left; }
       .card__list li b {
         min-width: 40px;
         color: #303030;
@@ -386,9 +401,6 @@ body {
   src: url("../fonts/FiraSans/firasans-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/FiraSans/firasans-regular-webfont.woff2") format("woff2"), url("../fonts/FiraSans/firasans-regular-webfont.woff") format("woff"), url("../fonts/FiraSans/firasans-regular-webfont.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
-
-.wow {
-  visibility: hidden; }
 
 .header {
   padding: 25px 0; }
