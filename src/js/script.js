@@ -265,12 +265,6 @@ $(function () {
     mounted: function () {
       var canvases = this.$refs.canvas;
 
-      setTimeout(function () {
-        for (var index = 0; index < cards.length; index++) {
-          new Chart(canvases[index], cards[index].diagram);
-        }
-      }, 1900);
-
       function buildCounter(activeSlide) {
         activeSlide.find("[data-counter]").each(function () {
           var num = parseInt($(this).data("counter")); //end count
@@ -278,20 +272,34 @@ $(function () {
 
           setTimeout(function () {
             counts.start();
-            activeSlide.addClass("ANIM");
+            activeSlide.addClass("COUNTER_ANIMATED");
+          }, 1900);
+        });
+      }
+
+      function buildDiagram(activeSlide) {
+        $(activeSlide).each(function (index, element) {
+          var i = $(this).data("slick-index");
+
+          setTimeout(function () {
+            new Chart(canvases[i], cards[i].diagram);
           }, 1900);
         });
       }
 
       $(".grid").on("init", function () {
         var activeSlide = $(".slick-active");
+
         buildCounter(activeSlide);
+        buildDiagram(activeSlide);
       });
 
       $(".grid").on("afterChange", function (slick, index, currentSlide) {
         var activeSlide = $("[data-slick-index=" + currentSlide + "]");
-        if (!activeSlide.hasClass("ANIM")) {
+
+        if (!activeSlide.hasClass("COUNTER_ANIMATED")) {
           buildCounter(activeSlide);
+          buildDiagram(activeSlide);
         }
       });
 
