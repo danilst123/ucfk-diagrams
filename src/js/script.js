@@ -88,7 +88,6 @@ $(function () {
   };
 
   var barOptions = {
-    cutoutPercentage: 75,
     animation: {
       duration: 1000, // general animation time
     },
@@ -150,7 +149,7 @@ $(function () {
         },
       ],
       diagram: {
-        type: "pie",
+        type: "doughnut",
         data: {
           labels: ["Физ. лица", "Юр. лица", "ИП"],
           datasets: [
@@ -329,7 +328,7 @@ $(function () {
         },
       ],
       diagram: {
-        type: "pie",
+        type: "doughnut",
         data: {
           labels: [
             "Федеральный орган исполнительной власти",
