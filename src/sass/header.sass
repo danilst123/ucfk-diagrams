@@ -1,19 +1,98 @@
 .header
+  font-family: $main_font
   padding: 25px 0
+  margin-bottom: 20px
+  animation-duration: 1s
+  animation-fill-mode: both
+  @media screen and ( max-width: $sm-max )
+    margin: 0
+    padding: 15px 0
 
   &__container
     display: flex
     align-items: center
+    @media screen and ( max-width: $sm-max )
+      display: block
 
   &__logo
+    height: 97px
+    width: 97px
     margin-right: 20px
+    @media screen and ( max-width: $sm-max )
+      height: 72px
+      width: 72px
+      float: left
+      margin-right: 10px
+    img
+      width: 100%
+      height: auto
+
+  &__titlegroup
+    @media screen and ( max-width: $sm-max )
+      padding-top: 5px
 
   &__title
     color: #303030
-    font-family: $main_font
-    font-size: 20px
-    font-weight: 500
-    line-height: 26px
-    letter-spacing: -0.2px
-    max-width: 700px
-    margin: 0
+    font-size: 22px
+    font-weight: 700
+    line-height: 1
+    text-transform: uppercase
+    margin: 0 0 5px
+    @media screen and ( max-width: $sm-max )
+      font-size: 17px
+      margin: 0 0 2px
+
+  &__subtitle
+    color: #6f6f6f
+    font-size: 17px
+    font-weight: 400
+    line-height: 19px
+    p 
+      margin: 0
+      &:first-child
+        @media screen and ( max-width: $sm-max )
+          display: none
+          
+      &:last-child
+        display: none
+        @media screen and ( max-width: $sm-max )
+          display: block
+
+      
+  &__contacts
+    flex-grow: 1
+    text-align: right
+    @media screen and ( max-width: $sm-max )
+      text-align: left
+    p
+      color: #8a8e90
+      font-size: 13px
+      font-weight: 400
+      line-height: 15px
+      margin-bottom: 5px
+      @media screen and ( max-width: $sm-max )
+        display: none
+    h3
+      color: #303030
+      font-size: 24px
+      font-weight: 500
+      line-height: 1
+      a
+        display: inline-flex
+        align-items: center
+        color: inherit !important
+        text-decoration: none
+        @media screen and ( max-width: $sm-max )
+          font-size: 14px
+          line-height: 19px
+        &:before
+          content: ''
+          width: 18px
+          height: 18px
+          background-image: url(../img/icon-phone.svg)
+          background-repeat: no-repeat
+          background-position: center
+          margin-right: 12px
+          @media screen and ( max-width: $sm-max )
+            display: none
+

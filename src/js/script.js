@@ -8,8 +8,90 @@ $(function () {
     suffix: "",
   };
 
+  var tooltips = {
+    // Disable the on-canvas tooltip
+    enabled: false,
+
+    custom: function (tooltipModel) {
+      // Tooltip Element
+      var tooltipEl = document.getElementById("chartjs-tooltip");
+
+      // Create element on first render
+      if (!tooltipEl) {
+        tooltipEl = document.createElement("div");
+        tooltipEl.id = "chartjs-tooltip";
+        tooltipEl.innerHTML = "<table></table>";
+        document.body.appendChild(tooltipEl);
+      }
+
+      // Hide if no tooltip
+      if (tooltipModel.opacity === 0) {
+        tooltipEl.style.opacity = 0;
+        return;
+      }
+
+      // Set caret Position
+      tooltipEl.classList.remove("above", "below", "no-transform");
+      if (tooltipModel.yAlign) {
+        tooltipEl.classList.add(tooltipModel.yAlign);
+      } else {
+        tooltipEl.classList.add("no-transform");
+      }
+
+      function getBody(bodyItem) {
+        return bodyItem.lines;
+      }
+
+      // Set Text
+      if (tooltipModel.body) {
+        var titleLines = tooltipModel.title || [];
+        var bodyLines = tooltipModel.body.map(getBody);
+
+        var innerHtml = "<thead>";
+
+        titleLines.forEach(function (title) {
+          innerHtml += "<tr><th>" + title + "</th></tr>";
+        });
+        innerHtml += "</thead><tbody>";
+
+        bodyLines.forEach(function (body, i) {
+          var colors = tooltipModel.labelColors[i];
+          var style = "background:" + colors.backgroundColor;
+          style += "; border-color:" + colors.borderColor;
+          style += "; border-width: 2px";
+          var span = '<span style="' + style + '"></span>';
+          innerHtml += "<tr><td>" + span + body + "</td></tr>";
+        });
+        innerHtml += "</tbody>";
+
+        var tableRoot = tooltipEl.querySelector("table");
+        tableRoot.innerHTML = innerHtml;
+      }
+
+      // `this` will be the overall tooltip
+      var position = this._chart.canvas.getBoundingClientRect();
+
+      // Display, position, and set styles for font
+      tooltipEl.style.opacity = 1;
+      tooltipEl.style.position = "absolute";
+      tooltipEl.style.left =
+        position.left + window.pageXOffset + tooltipModel.caretX + "px";
+      tooltipEl.style.top =
+        position.top + window.pageYOffset + tooltipModel.caretY + "px";
+      tooltipEl.style.fontFamily = tooltipModel._bodyFontFamily;
+      tooltipEl.style.fontSize = tooltipModel.bodyFontSize + "px";
+      tooltipEl.style.fontStyle = tooltipModel._bodyFontStyle;
+      tooltipEl.style.padding =
+        tooltipModel.yPadding + "px " + tooltipModel.xPadding + "px";
+      tooltipEl.style.pointerEvents = "none";
+    },
+  };
+
   var barOptions = {
     cutoutPercentage: 75,
+    animation: {
+      duration: 1000, // general animation time
+    },
     legend: {
       display: false,
     },
@@ -34,15 +116,21 @@ $(function () {
         },
       ],
     },
+    tooltips: tooltips,
   };
 
   var doughnutOptions = {
     cutoutPercentage: 75,
+    animation: {
+      duration: 1000, // general animation time
+    },
     legend: {
       display: false,
     },
+    tooltips: tooltips,
   };
 
+  // типа с сервера
   var cards = [
     {
       title: "Количество <br> действующих <br> сертификатов",
@@ -62,13 +150,14 @@ $(function () {
         },
       ],
       diagram: {
-        type: "doughnut",
+        type: "pie",
         data: {
           labels: ["Физ. лица", "Юр. лица", "ИП"],
           datasets: [
             {
               label: "Pints",
               data: [705894, 95980, 2474],
+              weight: 1000,
               backgroundColor: [
                 "#2999d6",
                 "#7bbee2",
@@ -131,7 +220,13 @@ $(function () {
       diagram: {
         type: "bar",
         data: {
-          labels: ["", "", "", "", ""],
+          labels: [
+            "Федеральное казначейство",
+            "Межрегиональное операционное управление ФК",
+            "Управление ФК по г. Санкт- Петербургу",
+            "Управление ФК по Новгородской области",
+            "Управление ФК по Омской области",
+          ],
           datasets: [
             {
               data: [716, 416, 316, 308, 308],
@@ -179,7 +274,13 @@ $(function () {
       diagram: {
         type: "bar",
         data: {
-          labels: ["", "", "", "", ""],
+          labels: [
+            "Федеральное казначейство",
+            "Межрегиональное операционное управление ФК",
+            "Управление ФК по г. Санкт- Петербургу",
+            "Управление ФК по Новгородской области",
+            "Управление ФК по Омской области",
+          ],
           datasets: [
             {
               data: [654, 356, 302, 298, 290],
@@ -228,7 +329,7 @@ $(function () {
         },
       ],
       diagram: {
-        type: "doughnut",
+        type: "pie",
         data: {
           labels: [
             "Федеральный орган исполнительной власти",
@@ -317,7 +418,7 @@ $(function () {
       function buildCounter(target, delay) {
         target.find("[data-counter]").each(function () {
           var num = parseInt($(this).data("counter"));
-          var counts = new CountUp(this, 0, num, null, 1, counterOptions);
+          var counts = new CountUp(this, 0, num, null, 0.8, counterOptions);
 
           setTimeout(function () {
             counts.start();

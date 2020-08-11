@@ -23,24 +23,38 @@
   </head>
   <body>
     <!-- ШАПКА -->
-    <!-- <header class="header">
+    <header
+      class="header fadeIn"
+      style="animation-delay: 0.1s; animation-duration: 1s;"
+    >
       <div class="container header__container">
         <div class="header__logo">
           <img src="../img/herb.png" alt="" />
         </div>
-        <h1 class="header__title">
-          Результаты проверки автоматизированного рабочего места пользователя
-          для работы с Информационной системой <br />
-          «Удостоверяющий центр Федерального казначейства»
-        </h1>
+        <div class="header__titlegroup">
+          <h1 class="header__title">
+            Портал заявителя
+          </h1>
+          <h4 class="header__subtitle">
+            <p>
+              Информационная система <br />
+              «Удостоверяющий центр Федерального казначейства»
+            </p>
+            <p>ИС УЦ ФК</p>
+          </h4>
+        </div>
+        <div class="header__contacts">
+          <p>Техподдержка</p>
+          <h3><a href="tel:8 (800) 222 27 77">8 (800) 222 27 77</a></h3>
+        </div>
       </div>
-    </header> -->
+    </header>
 
     <!-- КОНТЕНТ -->
     <main class="page">
       <div class="container">
         <div id="app">
-          <div class="grid animated fadeIn" style="animation-delay: 0.1s;">
+          <div class="grid fadeIn" style="animation-delay: 0.1s;">
             <div
               class="grid__item"
               v-for="(card, cardIndex) in cards"

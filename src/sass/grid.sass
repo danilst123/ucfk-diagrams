@@ -1,5 +1,7 @@
 .grid
   margin: 0 -10px
+  animation-duration: 1s
+  animation-fill-mode: both
   @media screen and ( max-width: $sm-max )
     margin: 0 -15px
 
@@ -9,5 +11,12 @@
     @media screen and ( max-width: $sm-max )
       width: calc(100vw - 80px) !important
 
-  &.slick-initialized .slick-slide
-    display: block
+  &.slick-initialized 
+    .slick-track
+      display: flex
+      align-items: stretch
+    .slick-slide
+      display: flex
+      flex-direction: column
+      height: auto
+
