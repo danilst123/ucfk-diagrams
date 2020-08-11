@@ -5,11 +5,9 @@
 
   &__item
     margin: 0 10px
+    display: none
     @media screen and ( max-width: $sm-max )
       width: calc(100vw - 80px) !important
 
-
-  .animated
-    @media screen and ( max-width: $sm-max )
-      animation-name: none;
-      visibility: hidden
+  &.slick-initialized .slick-slide
+    display: block

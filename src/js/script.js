@@ -18,6 +18,7 @@ $(function () {
         {
           gridLines: { display: false },
           display: false,
+          barPercentage: 0.65,
           ticks: {
             beginAtZero: true,
           },
@@ -139,8 +140,8 @@ $(function () {
                 "#7bbee2",
                 "#29c8d6",
                 "#0ac883",
-                "#dac42f",
                 "#46a06a",
+                "#dac42f",
               ],
             },
           ],
@@ -187,8 +188,8 @@ $(function () {
                 "#7bbee2",
                 "#29c8d6",
                 "#0ac883",
-                "#dac42f",
                 "#46a06a",
+                "#dac42f",
               ],
             },
           ],
