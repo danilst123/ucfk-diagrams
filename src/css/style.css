@@ -322,6 +322,9 @@ body {
     -webkit-box-align: stretch;
     -ms-flex-align: stretch;
     align-items: stretch; }
+    @media screen and (max-width: 969px) {
+      .grid.slick-initialized .slick-track {
+        display: block; } }
   .grid.slick-initialized .slick-slide {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -331,6 +334,9 @@ body {
     -ms-flex-direction: column;
     flex-direction: column;
     height: auto; }
+    @media screen and (max-width: 969px) {
+      .grid.slick-initialized .slick-slide {
+        display: block; } }
 
 .card {
   position: relative;
@@ -423,14 +429,14 @@ body {
         top: 0;
         left: 13px;
         right: 18px; }
-      .card__list li div {
+      .card__list li > div {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between; }
-      .card__list li span {
+      .card__list li > span {
         position: absolute;
         top: 0;
         left: 0;
@@ -440,17 +446,17 @@ body {
         -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
         order: 1; }
-      .card__list li:nth-child(1) span {
+      .card__list li:nth-child(1) > span {
         background: #2999d6; }
-      .card__list li:nth-child(2) span {
+      .card__list li:nth-child(2) > span {
         background: #7bbee2; }
-      .card__list li:nth-child(3) span {
+      .card__list li:nth-child(3) > span {
         background: #29c8d6; }
-      .card__list li:nth-child(4) span {
+      .card__list li:nth-child(4) > span {
         background: #0ac883; }
-      .card__list li:nth-child(5) span {
+      .card__list li:nth-child(5) > span {
         background: #46a06a; }
-      .card__list li:nth-child(6) span {
+      .card__list li:nth-child(6) > span {
         background: #b5c97d; }
       .card__list li p {
         margin: 0;

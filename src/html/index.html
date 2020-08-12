@@ -60,6 +60,7 @@
               v-for="(card, cardIndex) in cards"
               v-bind:data-index="cardIndex"
             >
+              <!-- CARD -->
               <div
                 class="card animated fadeIn"
                 v-bind:style="{animationDelay: animationDelay(cardIndex, 0)}"
@@ -99,7 +100,7 @@
                     ></span>
                     <div>
                       <p
-                        class="animated fadeIn"
+                        class="animated fadeIn typed"
                         v-bind:style="{animationDelay: animationDelay(3, 4)}"
                         v-html="item.title"
                       ></p>
@@ -113,6 +114,7 @@
                   </li>
                 </ul>
               </div>
+              <!-- ADDITIONAL CARD -->
               <div
                 class="card card--additional animated fadeIn"
                 v-if="card.additionalCard"
@@ -148,7 +150,7 @@
                     ></span>
                     <div>
                       <p
-                        class="animated fadeIn"
+                        class="animated fadeIn typed"
                         v-bind:style="{animationDelay: animationDelay(3, 4)}"
                         v-html="item.title"
                       ></p>
@@ -180,6 +182,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/countup@1.8.2/dist/countUp.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="../js/script.js"></script>
   </body>

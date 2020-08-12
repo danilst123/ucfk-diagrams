@@ -373,6 +373,8 @@ $(function () {
       $(".grid").on("init", function () {
         var activeSlide = $(".slick-active");
 
+        setListItemMinHeight();
+
         addAnimation($(".card"));
         addAnimation($(".slick-cloned").find(".animated"));
         addAnimation(activeSlide.find(".animated"));
@@ -381,6 +383,8 @@ $(function () {
         buildCounter(activeSlide, delay);
 
         buildDiagram(activeSlide, delay);
+
+        typeText(activeSlide);
       });
 
       $(".grid").on("afterChange", function (slick, index, currentSlide) {
@@ -390,6 +394,7 @@ $(function () {
           addAnimation(activeSlide.find(".animated"));
           buildCounter(activeSlide, delay);
           buildDiagram(activeSlide, delay);
+          typeText(activeSlide);
         }
       });
 
@@ -438,6 +443,27 @@ $(function () {
 
       function addAnimation(target) {
         target.css({ "animation-name": "fadeIn", visibility: "visible" });
+      }
+
+      function setListItemMinHeight() {
+        $(".card__list li").each(function (index, element) {
+          $(element).css("min-height", $(element).outerHeight());
+        });
+      }
+
+      function typeText(target) {
+        var delay = isMobile ? 400 : 1400;
+
+        $(target)
+          .find(".typed")
+          .each(function (index, element) {
+            new TypeIt(element, {
+              speed: 15,
+              loop: false,
+              cursor: false,
+              startDelay: delay,
+            }).go();
+          });
       }
     },
     methods: {

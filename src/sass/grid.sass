@@ -15,8 +15,12 @@
     .slick-track
       display: flex
       align-items: stretch
+      @media screen and ( max-width: $sm-max )
+        display: block
     .slick-slide
       display: flex
       flex-direction: column
       height: auto
+      @media screen and ( max-width: $sm-max )
+        display: block
 
